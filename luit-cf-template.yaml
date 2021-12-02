@@ -1,8 +1,8 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: >-
-  This template deploys a VPC in either us-east2 or us-west-1, with a pair of public and private subnets spread
-  across two Availability Zones. It deploys an internet gateway, with a default
-  route on the public subnets, a Linux t2.micro Instance with Security Group with open HTTP access. 
+  This template will deploy a VPC in either us-east2 or us-west-1, with a pair of public and private subnets spread
+  across two Availability Zones. It will also deploy an internet gateway with a default
+  route on the public subnets, and a Linux t2.micro Instance along with a Security Group with open HTTP access. 
 Mappings:
   RegionMap:
     us-east-2:
@@ -132,7 +132,7 @@ Resources:
             #!/bin/bash
             yum install httpd -y
             service httpd start  
-            echo "<html><body><h1>Hello Cloud Gurus from Region ${AWS::Region}<h1></body></html>" > /var/www/html/index.html
+            echo "<html><body><h1>Shakur Stevenson is my favorite boxer. This message is provided to you by Region ${AWS::Region}<h1></body></html>" > /var/www/html/index.html
 Outputs:
   PublicIp:
     Description: EC2 Instance Public Ip
