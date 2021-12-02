@@ -132,7 +132,7 @@ Resources:
             #!/bin/bash
             yum install httpd -y
             service httpd start  
-            echo "<html><body><h1>Pernell Whittaker is one my favorite boxer. This message is provided to you by Region ${AWS::Region}<h1></body></html>" > /var/www/html/index.html
+            echo "<html><body><h1>Pernell Whittaker is one of my favorite boxers. This message is provided to you by Region ${AWS::Region}<h1></body></html>" > /var/www/html/index.html
 Outputs:
   PublicIp:
     Description: EC2 Instance Public Ip
