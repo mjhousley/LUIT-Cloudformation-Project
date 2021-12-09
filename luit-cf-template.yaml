@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: >-
-  # This template will deploy a VPC in either us-east2 or us-west-1, with a pair of public and private subnets spread
+  # This template will deploy a VPC in either us-east-1 or us-west-2, with a pair of public and private subnets spread
   # across two Availability Zones. It will also deploy an internet gateway with a default
   # route on the public subnets, and a Linux t2.micro Instance along with a Security Group with open HTTP access. 
 Mappings:
