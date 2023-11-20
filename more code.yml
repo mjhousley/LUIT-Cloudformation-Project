@@ -1,0 +1,29 @@
+What we Doing
+Create a VPC with cidr 10.0.0.0/16 with an a t2micro instance. 
+The instance should have apache installed
+and be able to produce a test page.
+aws cloudformation create-stack --stack-name sweetpea-cf --template-body file://luit-cf-template.yaml
+aws cloudformation delete-stack \
+    --stack-name my-stack
+
+    LaunchConfig:
+    Type: 'AWS::AutoScaling::LaunchConfiguration'
+    DependsOn:
+      - ConsoleInstanceProfile
+    Properties:
+      ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
+      InstanceType: t2.micro
+      SubnetId: !Ref PublicSubnet1
+      SecurityGroupIds: 
+        - !Ref WebServerSecurityGroup
+      Tags:
+       - Key: Name
+         Value: LUIT CF Project EC2     
+      UserData:
+        Fn::Base64: !Sub |
+            #!/bin/bash
+            yum install httpd -y
+            service httpd start  
+            echo "<html><body><h1>Pernell Whittaker is one of my favorite boxers. This message is provided to you by Region ${AWS::Region}<h1></body></html>" > /var/www/html/index.html
+        - {
+          }

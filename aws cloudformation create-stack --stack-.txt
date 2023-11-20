@@ -1,0 +1,3 @@
+aws cloudformation create-stack --stack-name vpc-boxer --template-body file://luit-cf-template.yaml
+aws cloudformation wait stack-create-complete --stack-name vpc-boxer
+aws cloudformation delete-stack --stack-name vpc-boxer
